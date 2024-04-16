@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1 user-scalable=0"
+    />
+    <title>questions for art</title>
+    <style>
+      body {
+        margin: 1em;
+        padding: 0;
+        font-size: 42px;
+        line-height: 1.1;
+        font-family: serif;
+      }
+      h1,
+      h2 {
+        font-size: 1em;
+      }
+      h2 {
+        font-weight: normal;
+      }
+      .gray {
+        opacity: 0.5;
+      }
+      a {
+        color: black;
+      }
+      @media screen and (max-width: 650px) {
+        body {
+          font-size: 24px;
+        }
+      }
+      #visitor,
+      #artist {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    i am
+    <select id="perspective" onchange="checkPerspective()">
+      <option value="artist">the artist</option>
+      <option value="visitor">a visitor of the artist's exhibition</option>
+    </select>
+    <ul id="artist">
+      <li>
+        why does the work look (and / or sound, smell, etc.) the way it does?
+      </li>
+      <li>what works and / or artists are you in conversation with?</li>
+      <li>what questions do you have for your work?</li>
+      <li>where are you in the work?</li>
+    </ul>
+    <ul id="visitor">
+      <li>
+        why might the work look (and / or sound, smell, etc.) the way it does?
+      </li>
+      <li>
+        what works / other artists do you imagine the artist is in conversation
+        with?
+      </li>
+      <li>what questions do you have for this work and / or this artist?</li>
+      <li>where do you imagine the artist is in the work?</li>
+    </ul>
+    <script>
+      var artist = document.getElementById("artist");
+      var visitor = document.getElementById("visitor");
+      function checkPerspective() {
+        var perspective = document.getElementById("perspective").value;
+        console.log(perspective);
+        if (perspective == "visitor") {
+          artist.style.display = "none";
+          visitor.style.display = "block";
+        }
+        if (perspective == "artist") {
+          visitor.style.display = "none";
+          artist.style.display = "block";
+        }
+      }
+      checkPerspective();
+    </script>
+  </body>
+</html>
